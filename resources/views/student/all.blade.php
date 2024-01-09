@@ -12,6 +12,8 @@
                     <th scope="col">Nama</th>
                     <th scope="col">Nis</th>
                     <th scope="col">Kelas</th>
+                    <th scope="col">Alamat</th>
+                    <th scope="col">tanggal lahir</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
@@ -26,6 +28,8 @@
                <td>{{ $student->nama }}</td>
                <td>{{ $student->nis }}</td>
                <td>{{ $student->kelas }}</td>
+               <td>{{ $student->alamat }}</td>
+               <td>{{ $student->tgl_lahir }}</td>
                <td>
                 <a href="/student/detail/{{ $student->id }}">
                     <button class="btn btn-warning">Edit</button>
@@ -34,6 +38,9 @@
                 <button class="btn btn-danger" data-id="{{ $student->id }}">Delete</button>
                 <a href="/student/detail/{{ $student->id }}">
                     <button class="btn btn-primary">Detail</button>
+                </a>
+                <a href="/student/tambah/{{ $student->id }}">
+                    <button class="btn btn-success" >Tambah</button>
                 </a>
             </td>
 

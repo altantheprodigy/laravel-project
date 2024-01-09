@@ -24,4 +24,12 @@ class StudentsController extends Controller
     ]);
 }
 
+public function create(Student $student) 
+  {
+    return view('student.tambah', [
+      "title" => "AddData-students",
+      "student" => $student
+    ]);
+}
+
 }
