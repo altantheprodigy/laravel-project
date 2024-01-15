@@ -1,7 +1,16 @@
 @extends('layouts.main')
 
 @section('content')
-    <h1>Ini adalah halaman Student!</h1>
+<h1>Ini adalah halaman Student!</h1>
+
+<a href="/student/tambah">
+    <button class="btn btn-success" >Tambah</button>
+</a>
+    @if (session()->has('success'))
+        <div class="alert alert-success col-lg-12" role="alert">
+            {{session ('success')}}
+        </div>
+    @endif
 
     <div class="container mt-5">
        
@@ -38,9 +47,6 @@
                 <button class="btn btn-danger" data-id="{{ $student->id }}">Delete</button>
                 <a href="/student/detail/{{ $student->id }}">
                     <button class="btn btn-primary">Detail</button>
-                </a>
-                <a href="/student/tambah/{{ $student->id }}">
-                    <button class="btn btn-success" >Tambah</button>
                 </a>
             </td>
 

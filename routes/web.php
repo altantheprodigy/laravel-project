@@ -49,8 +49,8 @@ Route::get('/about', function () {
 Route::group(["prefix" => "/student"],function(){
 Route::get('/all', [StudentsController::class, "index"]);
 Route::get('/detail/{student}', [StudentsController::class, "show"]);
-Route::get('/tambah/{student}', [StudentsController::class, "create"]);
-
+Route::get('/tambah', [StudentsController::class, "create"]);
+Route::post('/add', [StudentsController::class, "store"]);
 });
 
 
