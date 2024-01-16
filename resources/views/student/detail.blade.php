@@ -19,23 +19,23 @@
         <form>
             <div class="form-group">
                 <label for="nama">Nama:</label>
-                <input type="text" class="form-control" id="nama" placeholder="Masukkan Nama" value="{{ $student->nama }}">
+                <input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan Nama" value="{{ $student->nama }}">
             </div>
             <div class="form-group">
                 <label for="nis">NIS:</label>
-                <input type="text" class="form-control" id="nis" placeholder="Masukkan NIS" value="{{ $student->nis }}">
+                <input type="text" class="form-control" id="nis" name="nis" placeholder="Masukkan NIS" value="{{ $student->nis }}">
             </div>
             <div class="form-group">
                 <label for="kelas">Kelas:</label>
-                <input type="text" class="form-control" id="kelas" placeholder="Masukkan Kelas" value="{{ $student->kelas }}">
+                <input type="text" class="form-control" id="kelas" name="kelas" placeholder="Masukkan Kelas" value="{{ $student->kelas }}">
             </div>
             <div class="form-group">
                 <label for="kelas">Alamat:</label>
-                <input type="text" class="form-control" id="kelas" placeholder="Masukkan Kelas" value="{{ $student->alamat }}">
+                <input type="text" class="form-control" id="alamat" name="alamat" placeholder="Masukkan Kelas" value="{{ $student->alamat }}">
             </div>
             <div class="form-group">
                 <label for="kelas">tanggal lahir:</label>
-                <input type="text" class="form-control" id="kelas" placeholder="Masukkan Kelas" value="{{ $student->tgl_lahir }}">
+                <input type="text" class="form-control" id="tgl_lahir" name="tgl_lahir" placeholder="Masukkan Kelas" value="{{ $student->tgl_lahir }}">
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>

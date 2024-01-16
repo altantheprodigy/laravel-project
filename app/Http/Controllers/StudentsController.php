@@ -35,14 +35,29 @@ public function create(Student $student)
 public function store(Request $request)
 {
   $validatedData = $request->validate([
+    'id' => 'AUTO INCREMENT',
     'nis' => 'required|max:225',
     'nama' => 'required|max:225',
     'kelas' => 'required',
     'tgl_lahir' => 'required',
-    'alamat' => 'required'
+    'alamat' => 'required',
 ]);
 
-  Student::create($validatedData);
-  return redirect('/student/all')->with('success','Data siswa berhasil ditambahkan');
-}
+$result = Student::create($validatedData);
+
+if ($result->wasRecentlyCreated) {
+    return redirect('/student/all')->with('success', 'Data siswa berhasil ditambahkan');
+} 
+
+  }
+
+  public function destroy(Student $student)
+  {
+      $result = Student::destroy($student->id);
+
+      if ($result) {
+        return redirect('/student/all')->with('success', 'Data siswa berhasil dihapus');
+      }
+  }
+  
 }

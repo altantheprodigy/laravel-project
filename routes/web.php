@@ -51,6 +51,7 @@ Route::get('/all', [StudentsController::class, "index"]);
 Route::get('/detail/{student}', [StudentsController::class, "show"]);
 Route::get('/tambah', [StudentsController::class, "create"]);
 Route::post('/add', [StudentsController::class, "store"]);
+Route::delete('/delete/{student}',[StudentsController::class,"destroy"]);
 });
 
 

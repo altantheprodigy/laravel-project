@@ -44,8 +44,13 @@
                     <button class="btn btn-warning">Edit</button>
                 </a>
                 
-                <button class="btn btn-danger" data-id="{{ $student->id }}">Delete</button>
-                <a href="/student/detail/{{ $student->id }}">
+                <form  method="POST" action="/student/delete/{{ $student->id }}" class="inline">
+                    @method('delete')
+                    @csrf
+                    <button class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus siswa ini?')">Delete</button>
+                </form>
+               
+                <a href="">
                     <button class="btn btn-primary">Detail</button>
                 </a>
             </td>
