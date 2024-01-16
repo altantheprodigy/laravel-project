@@ -16,12 +16,31 @@ class StudentsController extends Controller
     
   }
 
-  public function show(Student $student) 
+  public function edit(Student $student) 
   {
-    return view('student.detail', [
+    return view('student.edit', [
       "title" => "detail-students",
       "student" => $student
     ]);
+}
+
+public function update(Request $request, Student $student) {
+
+  $validatedData = $request->validate([
+    'id' => 'AUTO INCREMENT',
+    'nis' => 'required|max:225',
+    'nama' => 'required|max:225',
+    'kelas' => 'required',
+    'tgl_lahir' => 'required',
+    'alamat' => 'required',
+]);
+
+$result = Student::where('id', $student->id)->update($validatedData);
+
+if ($result) {
+    return redirect('/student/all')->with('success', 'Data siswa berhasil diubah');
+} 
+
 }
 
 public function create(Student $student) 
@@ -31,6 +50,8 @@ public function create(Student $student)
       "student" => $student
     ]);
 }
+
+
 
 public function store(Request $request)
 {
@@ -45,7 +66,7 @@ public function store(Request $request)
 
 $result = Student::create($validatedData);
 
-if ($result->wasRecentlyCreated) {
+if ($result) {
     return redirect('/student/all')->with('success', 'Data siswa berhasil ditambahkan');
 } 
 

@@ -25,7 +25,7 @@
                 <label for="kelas">tanggal lahir:</label>
                 <input type="Date" class="form-control" id="tgl_lahir" name="tgl_lahir" placeholder="Masukkan Tanggal lahir" value="{{ old('tgl_lahir') }}">
             </div>  
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Add Data</button>
         </form>
     </div>
 @endsection

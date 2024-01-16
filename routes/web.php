@@ -48,7 +48,8 @@ Route::get('/about', function () {
 
 Route::group(["prefix" => "/student"],function(){
 Route::get('/all', [StudentsController::class, "index"]);
-Route::get('/detail/{student}', [StudentsController::class, "show"]);
+Route::get('/edit/{student}', [StudentsController::class, "edit"]);
+Route::post('/update/{student}', [StudentsController::class, "update"]);
 Route::get('/tambah', [StudentsController::class, "create"]);
 Route::post('/add', [StudentsController::class, "store"]);
 Route::delete('/delete/{student}',[StudentsController::class,"destroy"]);

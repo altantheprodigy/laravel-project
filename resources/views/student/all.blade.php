@@ -39,15 +39,15 @@
                <td>{{ $student->kelas }}</td>
                <td>{{ $student->alamat }}</td>
                <td>{{ $student->tgl_lahir }}</td>
-               <td>
-                <a href="/student/detail/{{ $student->id }}">
+               <td class="d-flex justify-content-evenly">
+                <a href="/student/edit/{{ $student->id }}">
                     <button class="btn btn-warning">Edit</button>
                 </a>
                 
                 <form  method="POST" action="/student/delete/{{ $student->id }}" class="inline">
                     @method('delete')
                     @csrf
-                    <button class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus siswa ini?')">Delete</button>
+                    <button class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data siswa ini?')">Delete</button>
                 </form>
                
                 <a href="">
