@@ -15,7 +15,12 @@
             </div>
             <div class="form-group">
                 <label for="kelas">Kelas:</label>
-                <input type="text" class="form-control" id="kelas"name="kelas" placeholder="Masukkan Kelas" value="{{ old('kelas') }}">
+                {{-- <input type="text" class="form-control" id="kelas"name="kelas" placeholder="Masukkan Kelas" value="{{ old('kelas') }}"> --}}
+               <select name="form-select" id="kelas_id">
+                @foreach ($grades as $grade )
+                <option name="kelas_id" value="{{$grade->id}}">{{$grade->nama}}</option>
+            @endforeach
+               </select>
             </div>
             <div class="form-group">
                 <label for="kelas">Alamat:</label>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Student;
+use App\Models\kelas;
 use Illuminate\Http\Request;
 
 class StudentsController extends Controller
@@ -47,7 +48,8 @@ public function create(Student $student)
   {
     return view('student.tambah', [
       "title" => "AddData-students",
-      "student" => $student
+      "student" => $student,
+      "grades" => kelas::all()
     ]);
 }
 

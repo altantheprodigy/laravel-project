@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\StudentsController;
+use App\Http\Controllers\kelasController;
 use App\Http\Controllers\ExtraContoller;
 use Illuminate\Support\Facades\Route;
 
@@ -53,6 +54,16 @@ Route::post('/update/{student}', [StudentsController::class, "update"]);
 Route::get('/tambah', [StudentsController::class, "create"]);
 Route::post('/add', [StudentsController::class, "store"]);
 Route::delete('/delete/{student}',[StudentsController::class,"destroy"]);
+
+});
+
+Route::group(["prefix" => "/class"],function(){
+Route::get('/kelas', [kelasController::class, "index"]);
+Route::get('/tambah', [kelasController::class, "create"]);
+Route::post('/add', [kelasController::class, "store"]);
+Route::delete('/delete/{kelas}',[kelasController::class,"destroy"]);
+Route::get('/edit/{kelas}', [kelasController::class, "edit"]);
+Route::post('/update/{kelas}', [kelasController::class, "update"]);
 });
 
 

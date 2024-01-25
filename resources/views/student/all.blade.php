@@ -51,7 +51,7 @@
                 </form>
                
                 <a href="">
-                    <button class="btn btn-primary">Detail</button>
+                    <button class="btn btn-primary">Refresh</button>
                 </a>
             </td>
 
