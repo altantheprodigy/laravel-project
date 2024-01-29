@@ -16,7 +16,6 @@ return new class extends Migration
             $table -> integer ('nis') -> unique();
             $table -> string('nama', 100);
             $table -> foreignId('kelas_id');
-            $table -> string('kelas', 50);
             $table -> date('tgl_lahir');
             $table -> text('alamat');    
             $table->timestamps();

@@ -36,7 +36,13 @@
                <td>{{$no}}</td>
                <td>{{ $student->nama }}</td>
                <td>{{ $student->nis }}</td>
-               <td>{{ $student->kelas }}</td>
+               <td>
+                @if ($student->kelas)
+                    {{ $student->kelas->nama }}
+                @else
+                    No Class
+                @endif
+            </td>
                <td>{{ $student->alamat }}</td>
                <td>{{ $student->tgl_lahir }}</td>
                <td class="d-flex justify-content-evenly">

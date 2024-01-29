@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Models;
-
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Kelas;
 
 class Student extends Model
 {
@@ -11,10 +11,13 @@ class Student extends Model
     protected $guarded = ['id'];
 
     protected $fillable = [
-        "nis","nama","kelas","tgl_lahir","alamat"
+        "nis","nama","kelas_id","tgl_lahir","alamat"
     ];
 
-    public function grade(){
-        return $this->belongsTo(kelas::class);
-    }
+// Student.php
+public function kelas()
+{
+    return $this->belongsTo(Kelas::class, 'kelas_id');
+}
+
 }

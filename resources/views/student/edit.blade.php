@@ -28,7 +28,11 @@
             </div>
             <div class="form-group">
                 <label for="kelas">Kelas:</label>
-                <input type="text" class="form-control" id="kelas" name="kelas" placeholder="Masukkan Kelas" value="{{ $student->kelas }}">
+                <select name="kelas_id" id="kelas_id" class="form-control">
+                    @foreach ($grades as $grade)
+                        <option value="{{ $grade->id }}">{{ $grade->nama }}</option>
+                    @endforeach
+                </select>
             </div>
             <div class="form-group">
                 <label for="kelas">Alamat:</label>

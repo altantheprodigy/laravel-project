@@ -21,7 +21,8 @@ class StudentsController extends Controller
   {
     return view('student.edit', [
       "title" => "detail-students",
-      "student" => $student
+      "student" => $student,
+      "grades" => kelas::all()
     ]);
 }
 
@@ -31,7 +32,7 @@ public function update(Request $request, Student $student) {
     'id' => 'AUTO INCREMENT',
     'nis' => 'required|max:225',
     'nama' => 'required|max:225',
-    'kelas' => 'required',
+    'kelas_id' => 'required',
     'tgl_lahir' => 'required',
     'alamat' => 'required',
 ]);
@@ -48,7 +49,6 @@ public function create(Student $student)
   {
     return view('student.tambah', [
       "title" => "AddData-students",
-      "student" => $student,
       "grades" => kelas::all()
     ]);
 }
@@ -61,7 +61,7 @@ public function store(Request $request)
     'id' => 'AUTO INCREMENT',
     'nis' => 'required|max:225',
     'nama' => 'required|max:225',
-    'kelas' => 'required',
+    'kelas_id' => 'required',
     'tgl_lahir' => 'required',
     'alamat' => 'required',
 ]);
@@ -70,9 +70,8 @@ $result = Student::create($validatedData);
 
 if ($result) {
     return redirect('/student/all')->with('success', 'Data siswa berhasil ditambahkan');
-} 
-
-  }
+}
+}
 
   public function destroy(Student $student)
   {
