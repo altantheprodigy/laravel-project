@@ -56,9 +56,40 @@
                     <button class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data siswa ini?')">Delete</button>
                 </form>
                
-                <a href="">
-                    <button class="btn btn-primary">Refresh</button>
-                </a>
+                    <button type="button" class="detail btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop{{$student->id}}">Detail</button>
+                    {{-- Detail --}}
+                <div class="modal fade" id="staticBackdrop{{$student->id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h1 class="modal-title fs-5" id="exampleModalLabel">Detail</h1>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <table class="table table-hover table-bordered caption-top table-responsive table align-middle">
+                            <thead>
+                              <tr class="table-dark">,
+                                <th scope="col">Nama</th>
+                                <th scope="col">NIS</th>
+                                <th scope="col">Kelas</th>
+                                <th scope="col">Tanggal Lahir</th>
+                                <th scope="col">Alamat</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>{{ $student->nama }}</td>
+                                <td>{{ $student->nis }}</td>
+                                <td>{{ $student->kelas->nama ?? "Class Not Found" }}</td>
+                                <td>{{ $student->tgl_lahir }}</td>
+                                <td>{{ $student->alamat }}</td>
+                              </tr>
+                        </tbody>
+                    </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
             </td>
 
             </tr> 

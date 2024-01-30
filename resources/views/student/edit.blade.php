@@ -30,7 +30,9 @@
                 <label for="kelas">Kelas:</label>
                 <select name="kelas_id" id="kelas_id" class="form-control">
                     @foreach ($grades as $grade)
-                        <option value="{{ $grade->id }}">{{ $grade->nama }}</option>
+                    <option value="{{ $grade->id }}" {{ $grade->id == $student->kelas_id ? 'selected' : '' }}>
+                        {{ $grade->nama }}
+                    </option>
                     @endforeach
                 </select>
             </div>

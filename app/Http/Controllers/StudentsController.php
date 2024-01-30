@@ -17,12 +17,13 @@ class StudentsController extends Controller
     
   }
 
-  public function edit(Student $student) 
+
+  public function edit(Student $student)  
   {
     return view('student.edit', [
       "title" => "detail-students",
       "student" => $student,
-      "grades" => kelas::all()
+      "grades" => kelas::all(),
     ]);
 }
 
