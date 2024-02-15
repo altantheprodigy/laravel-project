@@ -3,18 +3,39 @@
 @section('content')
 <h1>Ini adalah halaman Student!</h1>
 
-<a href="/student/tambah">
+{{-- <a href="/student/tambah">
     <button class="btn btn-success" >Tambah</button>
-</a>
+</a> --}}
+
+<form action="/student/all">
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Search.." name="search" value="{{request('search')}}">
+        <button class="btn btn-outline-primary" type="submit">Search</button>
+    </div>
+</form>
+
     @if (session()->has('success'))
         <div class="alert alert-success col-lg-12" role="alert">
             {{session ('success')}}
         </div>
     @endif
 
+
+    @if (session('success'))
+                    <div class="alert alert-success col-lg-12" role="alert">
+                        {{session ('success')}}
+                    </div>
+                @endif
+
+                @if (session()->has('loginEror'))
+                    <div class="alert alert-success col-lg-12" role="alert">
+                        {{session ('loginEror')}}
+                    </div>
+                @endif
+
     <div class="container mt-5">
-       
-        <table class="table table-striped">
+
+        <table class="table table-primary">
             <thead>
                 <tr>
                     <th scope="col">No</th>
@@ -46,7 +67,7 @@
                <td>{{ $student->alamat }}</td>
                <td>{{ $student->tgl_lahir }}</td>
                <td class="d-flex justify-content-evenly">
-                <a href="/student/edit/{{ $student->id }}">
+                {{-- <a href="/student/edit/{{ $student->id }}">
                     <button class="btn btn-warning">Edit</button>
                 </a>
                 
@@ -54,7 +75,7 @@
                     @method('delete')
                     @csrf
                     <button class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data siswa ini?')">Delete</button>
-                </form>
+                </form> --}}
                
                     <button type="button" class="detail btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop{{$student->id}}">Detail</button>
                     {{-- Detail --}}
@@ -100,6 +121,9 @@
                @endforeach
             </tbody>
         </table>
+        <div class="d-flex justify-content-end bg-red">
+            {{$students->links()}}
+        </div>
     </div>
 @endsection
 

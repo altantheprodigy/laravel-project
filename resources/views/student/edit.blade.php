@@ -16,7 +16,7 @@
 
 <body>
     <div class="container mt-5">
-        <form method="POST" action="/student/update/ {{$student->id}}">
+        <form method="POST" action="/dashboard/update/ {{$student->id}}">
             @csrf
             <div class="form-group">
                 <label for="nama">Nama:</label>
@@ -32,12 +32,11 @@
                     @foreach ($grades as $grade)
                     <option value="{{ $grade->id }}" {{ $grade->id == $student->kelas_id ? 'selected' : '' }}>
                         {{ $grade->nama }}
-                    </option>
                     @endforeach
                 </select>
             </div>
             <div class="form-group">
-                <label for="kelas">Alamat:</label>
+                <label for="kelas">Alamat:</label>  
                 <input type="text" class="form-control" id="alamat" name="alamat" placeholder="Masukkan Kelas" value="{{ $student->alamat }}">
             </div>
             <div class="form-group">

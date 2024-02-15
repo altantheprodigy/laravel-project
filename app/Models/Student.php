@@ -18,6 +18,16 @@ class Student extends Model
 public function kelas()
 {
     return $this->belongsTo(Kelas::class, 'kelas_id');
+}   
+
+public function scopeFilter($query, array $filters)
+{
+    if (isset($filters['search']) ? $filters['search'] : false) {
+       return $query->where('nama', 'like', '%'. $filters['search'] . '%')
+              ->Orwhere('alamat', 'like', '%'. $filters['search'] . '%');
+      }
 }
 
 }
+
+

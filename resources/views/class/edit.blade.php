@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container mt-5">
-        <form method="POST" action="/class/update/ {{$kelas->id}}">
+        <form method="POST" action="/dashboard/updateKelas/ {{$kelas->id}}">
             @csrf
             <div class="form-group">
                 <label for="nama">Nama Kelas:</label>

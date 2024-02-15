@@ -36,7 +36,7 @@ class kelasController extends Controller
 $result = kelas::create($validatedData);
 
 if ($result) {
-    return redirect('/class/kelas')->with('success', 'Data siswa berhasil ditambahkan');
+    return redirect('/dashboard/grade')->with('success', 'Data siswa berhasil ditambahkan');
 } 
 
   }
@@ -51,26 +51,26 @@ if ($result) {
       }
   }
 
-  public function edit(kelas $kelas) 
-  {
-    return view('class.edit', [
-      "title" => "edit-kelas",
-      "kelas" => $kelas
-    ]);
-}
+//   public function edit(kelas $kelas) 
+//   {
+//     return view('class.edit', [
+//       "title" => "edit-kelas",
+//       "kelas" => $kelas
+//     ]);
+// }
 
-public function update(Request $request, kelas $kelas) {
+// public function update(Request $request, kelas $kelas) {
 
-    $validatedData = $request->validate([
-      'nama' => 'required|max:225',
-  ]);
+//     $validatedData = $request->validate([
+//       'nama' => 'required|max:225',
+//   ]);
   
-  $result = kelas::where('id', $kelas->id)->update($validatedData);
+//   $result = kelas::where('id', $kelas->id)->update($validatedData);
   
-  if ($result) {
-      return redirect('/class/kelas')->with('success', 'Data siswa berhasil diubah');
-  } 
+//   if ($result) {
+//       return redirect('/class/kelas')->with('success', 'Data siswa berhasil diubah');
+//   } 
   
-  }
+//   }
   
 }

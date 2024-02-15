@@ -1,13 +1,11 @@
-@extends('layouts.main')
+@extends('layouts.mainDashboard')
 
-@section('content')
+@section('conten')
 <h1>Ini adalah halaman Kelas!</h1>
 
-{{-- <a href="/class/tambah">
+<a href="/dashboard/tambahKelas">
     <button class="btn btn-success" >Tambah</button>
-</a> --}}
-
-
+</a>
     @if (session()->has('success'))
         <div class="alert alert-success col-lg-12" role="alert">
             {{session ('success')}}
@@ -17,11 +15,12 @@
 
 <div class="container mt-5">
        
-    <table class="table table-primary">
+    <table class="table table-priary">
         <thead>
             <tr>
                 <th scope="col">No</th>
                 <th scope="col">Nama</th>
+                <th scope="col">Action</th>
             </tr>
         </thead>
         <tbody>
@@ -33,6 +32,16 @@
            <tr>
            <td>{{$no}}</td>
            <td>{{ $classs->nama }}</td>
+           <td class="d-flex justify-content-evenly">
+            <form  method="POST" action="/dashboard/deleteKelas/{{ $classs->id }}" >
+            @method('delete')
+            @csrf
+            <button class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data siswa ini?')">Delete</button>
+        </form>
+        <a href="/dashboard/editKelas/{{ $classs->id }}">
+            <button class="btn btn-warning">Edit</button>
+        </a>
+    </td>
         </tr> 
        
        @php
@@ -41,6 +50,5 @@
            @endforeach
         </tbody>
     </table>
-    
 </div>
 @endsection
